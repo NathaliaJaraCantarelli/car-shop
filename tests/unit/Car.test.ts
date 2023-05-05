@@ -3,6 +3,7 @@ import sinon from 'sinon';
 import { Model } from 'mongoose';
 import { inputCar, allOutputCars } from './Utils/Car.mock';
 import CarService from '../../src/Services/Car.Service';
+import CarODM from '../../src/Models/Car.ODM';
 
 describe('Criar um novo carro', function () {
   it('é criado um novo carro', async function () {
@@ -24,8 +25,8 @@ describe('Criar um novo carro', function () {
     expect(result).to.be.deep.equal(allOutputCars);
   });
 
-  it('Deve retornar apenas o carro referente ao id passado', async function () {
-    sinon.stub(Model, 'findById').resolves(allOutputCars[2]);
+  it('retorna o carro pelo id', async function () {
+    sinon.stub(CarODM.prototype, 'getById').resolves(allOutputCars[2]);
 
     const service = new CarService();
     const result = await service.findById('987654');
