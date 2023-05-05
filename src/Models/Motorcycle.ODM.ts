@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 import IMotorcycle from '../Interfaces/IMotorcycle';
-import AbstractODM from './Abstract.ODM';
+import AbstractODM from './AbstractODM';
 
 class MotorcycleODM extends AbstractODM<IMotorcycle> {
   constructor() {
