@@ -26,12 +26,12 @@ describe('Criar um novo carro', function () {
   });
 
   it('retorna o carro pelo id', async function () {
-    sinon.stub(CarODM.prototype, 'getById').resolves(allOutputCars[2]);
+    sinon.stub(CarODM.prototype, 'getById').resolves(allOutputCars[1]);
 
     const service = new CarService();
     const result = await service.findById('987654');
 
-    expect(result).to.be.deep.equal(allOutputCars[2]);
+    expect(result).to.be.deep.equal(allOutputCars[1]);
   });
 
   afterEach(function () {
