@@ -1,6 +1,6 @@
 import { Schema, isValidObjectId, UpdateQuery } from 'mongoose';
 import ICar from '../Interfaces/ICar';
-import AbstractODM from './Abstract.ODM';
+import AbstractODM from './AbstractODM';
 
 class CarODM extends AbstractODM<ICar> {
   constructor() {
