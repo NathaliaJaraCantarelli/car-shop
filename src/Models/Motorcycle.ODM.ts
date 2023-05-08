@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose';
+import { Schema, isValidObjectId } from 'mongoose';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import AbstractODM from './AbstractODM';
 
@@ -15,6 +15,17 @@ class MotorcycleODM extends AbstractODM<IMotorcycle> {
     });
 
     super(schema, 'Motorcycle');
+  }
+
+  public async getAll(): Promise<IMotorcycle[]> {
+    return this.model.find();
+  }
+
+  public async getById(id: string): Promise<IMotorcycle | null> {
+    if (!isValidObjectId(id)) {
+      throw new Error('Invalid mongo id');
+    }
+    return this.model.findById(id);
   }
 }
 
