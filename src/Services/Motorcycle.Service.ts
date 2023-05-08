@@ -26,6 +26,12 @@ class MotorcycleService {
     const motorcycleId = await motorcycle.getById(id);
     return this.motorCreateDomain(motorcycleId);
   }
+
+  public async updateMotorcycle(id: string, motorcycle: IMotorcycle) {
+    const motorcycleODM = new MotorcycleODM();
+    const motorcycleUpdated = await motorcycleODM.update(id, motorcycle);
+    return this.motorCreateDomain(motorcycleUpdated);
+  }
 }
 
 export default MotorcycleService;
