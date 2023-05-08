@@ -3,7 +3,12 @@ import sinon from 'sinon';
 import { Model } from 'mongoose';
 import MotorcycleService from '../../src/Services/Motorcycle.Service';
 import MotorcycleODM from '../../src/Models/Motorcycle.ODM';
-import { inputMotorcycle, outputAllMotorcycles } from './Utils/Motorcycle.mock';
+import {
+  inputMotorcycle,
+  outputAllMotorcycles,
+  updatedMotorcycle,
+  updatedMotorcycleNoId,
+} from './Utils/Motorcycle.mock';
 
 describe('Testes de Motorcycle', function () {
   it('cria uma Motorcycle com sucesso', async function () {
@@ -29,6 +34,15 @@ describe('Testes de Motorcycle', function () {
     const service = new MotorcycleService();
     const result = await service.getById('987456');
     expect(result).to.be.deep.equal(outputAllMotorcycles[1]);
+  });
+
+  it('atualiza uma Motorcycle', async function () {
+    sinon.stub(MotorcycleODM.prototype, 'getById')
+      .returns(Promise.resolve(outputAllMotorcycles[1]));
+    sinon.stub(MotorcycleODM.prototype, 'update').returns(Promise.resolve(updatedMotorcycle));
+    const service = new MotorcycleService();
+    const result = await service.updateMotorcycle('987654', updatedMotorcycleNoId);
+    expect(result).to.be.deep.equal(updatedMotorcycle);
   });
 
   afterEach(function () {

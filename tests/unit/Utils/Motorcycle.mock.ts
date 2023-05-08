@@ -33,4 +33,25 @@ const outputAllMotorcycles: IMotorcycle[] = [
   },
 ];
 
-export { inputMotorcycle, outputAllMotorcycles };
+const updatedMotorcycle: IMotorcycle = {
+  id: '987456',
+  model: 'Bandit',
+  year: 2021,
+  color: 'Branca',
+  status: true,
+  buyValue: 30000,
+  category: 'Street',
+  engineCapacity: 1250,
+};
+
+const updatedMotorcycleNoId: IMotorcycle = {
+  model: 'Bandit',
+  year: 2021,
+  color: 'Branca',
+  status: true,
+  buyValue: 30000,
+  category: 'Street',
+  engineCapacity: 1250,
+};
+
+export { inputMotorcycle, outputAllMotorcycles, updatedMotorcycle, updatedMotorcycleNoId };

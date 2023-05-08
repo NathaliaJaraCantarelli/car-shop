@@ -33,4 +33,25 @@ const allOutputCars: ICar[] = [
   },
 ];
 
-export { inputCar, allOutputCars };
+const updatedCar: ICar = {
+  id: '987654',
+  model: 'Celta',
+  year: 2017,
+  color: 'Preto',
+  status: true,
+  buyValue: 15000,
+  doorsQty: 4,
+  seatsQty: 5,
+};
+
+const updatedCarNoId: ICar = {
+  model: 'Celta',
+  year: 2017,
+  color: 'Preto',
+  status: true,
+  buyValue: 15000,
+  doorsQty: 4,
+  seatsQty: 5,
+};
+
+export { inputCar, allOutputCars, updatedCar, updatedCarNoId };
